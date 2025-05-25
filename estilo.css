@@ -1,48 +1,68 @@
 
 body {
-    background-color: #f0fdf4;
+    font-family: Arial, sans-serif;
+    background: #eef8f1;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: Arial, sans-serif;
+    align-items: flex-start;
+    padding-top: 30px;
 }
 
-.login-container {
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    width: 600px;
 }
 
 .logo {
-    width: 120px;
-    margin-bottom: 20px;
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 100px;
 }
 
-.login-title {
-    color: #2e7d32;
-    margin-bottom: 20px;
+h1 {
+    text-align: center;
+    color: #2d702d;
 }
 
-input[type="text"], input[type="password"] {
+.form-row select {
+    margin: 5px;
+    padding: 6px;
+    font-size: 15px;
+}
+
+.form-group {
+    margin-top: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #444;
+}
+
+input[type="number"], textarea, select {
     width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 15px;
 }
 
 button {
-    background-color: #2e7d32;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #2d702d;
     color: white;
-    padding: 10px 20px;
+    font-size: 16px;
     border: none;
+    margin-top: 20px;
     border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #27632a;
+    background-color: #245c24;
 }
