@@ -2,95 +2,68 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Lançamento Mensal</title>
-    <link rel="stylesheet" href="estilo.css">
+  <meta charset="UTF-8">
+  <title>Lançamento Mensal</title>
+  <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <div class="container">
-        <img src="logo.png" alt="Logo Fazenda" class="logo">
-        <h1>Lançamento Mensal</h1>
-        <form id="lancamento-form">
-            <div class="form-row">
-                <select name="fazenda">
-                    <option value="">Selecione a Fazenda</option>
-                    <option value="Taquarussu">Taquarussu</option>
-                    <option value="Coqueiral">Coqueiral</option>
-                </select>
-                <select name="mes">
-                    <option value="">Mês</option>
-                    <option value="Janeiro">Janeiro</option>
-                    <option value="Fevereiro">Fevereiro</option>
-                    <option value="Março">Março</option>
-                    <option value="Abril">Abril</option>
-                    <option value="Maio">Maio</option>
-                    <option value="Junho">Junho</option>
-                    <option value="Julho">Julho</option>
-                    <option value="Agosto">Agosto</option>
-                    <option value="Setembro">Setembro</option>
-                    <option value="Outubro">Outubro</option>
-                    <option value="Novembro">Novembro</option>
-                    <option value="Dezembro">Dezembro</option>
-                </select>
-                <select name="ano">
-                    <option value="">Ano</option>
-                    <option value="2024">2024</option>
-                    <option value="2025">2025</option>
-                </select>
-                <select name="sexo">
-                    <option value="">Sexo</option>
-                    <option value="Macho">Macho</option>
-                    <option value="Fêmea">Fêmea</option>
-                </select>
-                <select name="faixa">
-                    <option value="">Faixa Etária</option>
-                    <option value="0-12">0 a 12 meses</option>
-                    <option value="12-24">12 a 24 meses</option>
-                    <option value="24+">Acima de 24 meses</option>
-                </select>
-            </div>
+  <div class="container">
+    <img src="logo_fazenda_taquarussu.jpeg" class="logo" alt="Logo Fazenda">
+    <h1>Lançamento Mensal</h1>
+    <form>
+      <div class="select-group">
+        <select name="fazenda" required>
+          <option value="">Fazenda</option>
+          <option value="Taquarussu">Taquarussu</option>
+          <option value="Coqueiral">Coqueiral</option>
+        </select>
+        <select name="mes" required>
+          <option value="">Mês</option>
+          <option value="Janeiro">Janeiro</option>
+          <option value="Fevereiro">Fevereiro</option>
+          <option value="Março">Março</option>
+          <option value="Abril">Abril</option>
+          <option value="Maio">Maio</option>
+          <option value="Junho">Junho</option>
+          <option value="Julho">Julho</option>
+          <option value="Agosto">Agosto</option>
+          <option value="Setembro">Setembro</option>
+          <option value="Outubro">Outubro</option>
+          <option value="Novembro">Novembro</option>
+          <option value="Dezembro">Dezembro</option>
+        </select>
+        <select name="ano" required>
+          <option value="">Ano</option>
+          <option value="2024">2024</option>
+          <option value="2025">2025</option>
+        </select>
+        <select name="sexo" required>
+          <option value="">Sexo</option>
+          <option value="Macho">Macho</option>
+          <option value="Fêmea">Fêmea</option>
+        </select>
+        <select name="faixa" required>
+          <option value="">Faixa Etária</option>
+          <option value="0-12">0 a 12 meses</option>
+          <option value="12-24">12 a 24 meses</option>
+          <option value="24-36">24 a 36 meses</option>
+          <option value="36+">Mais de 36 meses</option>
+        </select>
+      </div>
 
-            <div class="form-group">
-                <label>Inicial</label>
-                <input type="number" name="inicial">
-            </div>
-            <div class="form-group">
-                <label>Entrada</label>
-                <input type="number" name="entrada">
-                <textarea name="desc_entrada" placeholder="Descrição da Entrada"></textarea>
-            </div>
-            <div class="form-group">
-                <label>Nascimentos</label>
-                <input type="number" name="nascimentos">
-                <textarea name="desc_nascimentos" placeholder="Descrição dos Nascimentos"></textarea>
-            </div>
-            <div class="form-group">
-                <label>Transferência</label>
-                <input type="number" name="transferencia">
-                <textarea name="desc_transferencia" placeholder="Descrição da Transferência"></textarea>
-            </div>
-            <div class="form-group">
-                <label>Saída da Fazenda</label>
-                <input type="number" name="saida">
-                <textarea name="desc_saida" placeholder="Descrição da Saída"></textarea>
-            </div>
-            <div class="form-group">
-                <label>Abate</label>
-                <input type="number" name="abate">
-                <textarea name="desc_abate" placeholder="Descrição do Abate"></textarea>
-            </div>
-            <div class="form-group">
-                <label>Mortes</label>
-                <input type="number" name="mortes">
-                <textarea name="desc_mortes" placeholder="Descrição das Mortes"></textarea>
-            </div>
-            <div class="form-group">
-                <label>Descrição Geral</label>
-                <textarea name="descricao_geral" rows="4"></textarea>
-            </div>
+      <div class="form-group"><label>Inicial</label><input type="number" name="inicial"></div>
 
-            <button type="submit">Salvar</button>
-        </form>
-    </div>
+      <div class="form-group"><label>Entrada</label><input type="number" name="entrada"><textarea name="desc_entrada" placeholder="Descrição da Entrada"></textarea></div>
+      <div class="form-group"><label>Nascimentos</label><input type="number" name="nascimentos"><textarea name="desc_nascimentos" placeholder="Descrição dos Nascimentos"></textarea></div>
+      <div class="form-group"><label>Transferência</label><input type="number" name="transferencia"><textarea name="desc_transferencia" placeholder="Descrição da Transferência"></textarea></div>
+      <div class="form-group"><label>Saída da Fazenda</label><input type="number" name="saida"><textarea name="desc_saida" placeholder="Descrição da Saída da Fazenda"></textarea></div>
+      <div class="form-group"><label>Abate</label><input type="number" name="abate"><textarea name="desc_abate" placeholder="Descrição do Abate"></textarea></div>
+      <div class="form-group"><label>Mortes</label><input type="number" name="mortes"><textarea name="desc_mortes" placeholder="Descrição das Mortes"></textarea></div>
+
+      <div class="form-group"><label>Saldo Final (automático)</label><input type="number" name="saldo" disabled></div>
+
+      <button type="submit">Salvar</button>
+    </form>
+  </div>
 </body>
 </html>
