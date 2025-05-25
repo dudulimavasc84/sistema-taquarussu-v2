@@ -1,1 +1,21 @@
-<!-- Conteúdo de exemplo para index.html -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - Sistema de Gado</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="login-container">
+    <img src="logo.png" alt="Logo Fazenda" class="logo" />
+    <h1>Login - <span class="highlight">Sistema de Gado</span></h1>
+    <form onsubmit="return login(event)">
+      <input type="text" id="username" placeholder="Usuário" required />
+      <input type="password" id="password" placeholder="Senha" required />
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
