@@ -1,39 +1,42 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #f4f4f4;
+    background-color: #f1f1f1;
     text-align: center;
 }
-.logo {
-    width: 100px;
+.container {
+    background: white;
+    max-width: 600px;
     margin: 20px auto;
-}
-.login-container, .painel-container, .form-container {
-    background: #fff;
     padding: 30px;
-    margin: 40px auto;
-    width: 90%;
-    max-width: 500px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.logo {
+    max-width: 80px;
+    margin-bottom: 10px;
+}
+h2 {
+    margin-bottom: 20px;
+    color: #2d6a4f;
+}
+.linha {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
 }
 input, select {
-    width: 30%;
+    flex: 1;
+    margin: 5px;
     padding: 10px;
-    margin: 10px 5px;
-    font-size: 14px;
 }
-.botao, button {
-    display: block;
-    width: 80%;
-    margin: 10px auto;
-    padding: 12px;
-    background: green;
+button {
+    background-color: #2d6a4f;
     color: white;
+    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
-    text-decoration: none;
-}
-.sair {
-    background: red;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
 }

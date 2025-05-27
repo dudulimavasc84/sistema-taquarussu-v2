@@ -1,178 +1,88 @@
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Lançamento Mensal</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            margin-top: 30px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 500px;
-        }
-        .logo {
-            display: block;
-            margin: 0 auto 20px;
-            height: 80px;
-        }
-        h2 {
-            text-align: center;
-            color: #2e7d32;
-        }
-        label {
-            font-weight: bold;
-        }
-        select, input[type="number"], input[type="text"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        .full-width {
-            grid-column: 1 / -1;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #2e7d32;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-    </style>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
     <div class="container">
         <img src="logo.png" alt="Logo Fazenda" class="logo">
         <h2>Lançamento Mensal</h2>
-        <div class="grid">
-            <div>
-                <label for="fazenda">Fazenda</label>
-                <select id="fazenda">
-                    <option>Fazenda Taquarussu</option>
-                    <option>Fazenda Coqueiral</option>
+        <form id="lancamentoForm">
+            <div class="linha">
+                <select name="fazenda" id="fazenda">
+                    <option value="Fazenda Taquarussu">Fazenda Taquarussu</option>
+                    <option value="Fazenda Coqueiral">Fazenda Coqueiral</option>
+                </select>
+                <select name="mes" id="mes">
+                    <script>
+                        const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+                        document.write(meses.map(m => `<option value="${m}">${m}</option>`).join(""));
+                    </script>
+                </select>
+                <select name="ano" id="ano">
+                    <script>
+                        for (let ano = 2020; ano <= 2030; ano++) {
+                            document.write(`<option value="${ano}">${ano}</option>`);
+                        }
+                    </script>
                 </select>
             </div>
-            <div>
-                <label for="mes">Mês</label>
-                <select id="mes">
-                    <option>Janeiro</option>
-                    <option>Fevereiro</option>
-                    <option>Março</option>
-                    <option>Abril</option>
-                    <option>Maio</option>
-                    <option>Junho</option>
-                    <option>Julho</option>
-                    <option>Agosto</option>
-                    <option>Setembro</option>
-                    <option>Outubro</option>
-                    <option>Novembro</option>
-                    <option>Dezembro</option>
+            <div class="linha">
+                <select name="sexo">
+                    <option value="Macho">Macho</option>
+                    <option value="Fêmea">Fêmea</option>
                 </select>
-            </div>
-            <div>
-                <label for="ano">Ano</label>
-                <select id="ano">
-                    <option>2020</option>
-<option>2021</option>
-<option>2022</option>
-<option>2023</option>
-<option>2024</option>
-<option>2025</option>
-<option>2026</option>
-<option>2027</option>
-<option>2028</option>
-<option>2029</option>
-<option>2030</option>
-                </select>
-            </div>
-            <div>
-                <label for="sexo">Sexo</label>
-                <select id="sexo">
-                    <option>Macho</option>
-                    <option>Fêmea</option>
-                </select>
-            </div>
-            <div class="full-width">
-                <label for="faixa">Faixa Etária</label>
-                <select id="faixa">
+                <select name="faixaEtaria" id="faixaEtaria">
                     <option>0 a 12 meses</option>
-                    <option>12 a 24 meses</option>
-                    <option>24 a 36 meses</option>
+                    <option>13 a 24 meses</option>
+                    <option>25 a 36 meses</option>
                     <option>Acima de 36 meses</option>
                 </select>
             </div>
-            <div>
-                <label for="inicial">Inicial</label>
-                <input type="number" id="inicial" value="0">
+            <div class="linha">
+                <input type="number" placeholder="Inicial" id="inicial">
+                <input type="number" placeholder="Entrada" id="entrada">
+                <input type="text" placeholder="Descrição da Entrada">
             </div>
-            <div>
-                <label for="entrada">Entrada</label>
-                <input type="number" id="entrada" value="0">
-                <input type="text" placeholder="Descrição da entrada">
+            <div class="linha">
+                <input type="number" placeholder="Nascimentos" id="nascimentos">
             </div>
-            <div>
-                <label for="nascimentos">Nascimentos</label>
-                <input type="number" id="nascimentos" value="0">
+            <div class="linha">
+                <input type="number" placeholder="Transferência" id="transferencia">
+                <input type="text" placeholder="Descrição da Transferência">
             </div>
-            <div>
-                <label for="transferencia">Transferência</label>
-                <input type="number" id="transferencia" value="0">
-                <input type="text" placeholder="Descrição da transferência">
+            <div class="linha">
+                <input type="number" placeholder="Saída da Fazenda" id="saida">
+                <input type="text" placeholder="Descrição da Saída">
             </div>
-            <div>
-                <label for="saida">Saída da Fazenda</label>
-                <input type="number" id="saida" value="0">
-                <input type="text" placeholder="Descrição da saída">
+            <div class="linha">
+                <input type="number" placeholder="Abate" id="abate">
+                <input type="text" placeholder="Descrição do Abate">
             </div>
-            <div>
-                <label for="abate">Abate</label>
-                <input type="number" id="abate" value="0">
-                <input type="text" placeholder="Descrição do abate">
+            <div class="linha">
+                <input type="number" placeholder="Mortes" id="mortes">
+                <input type="text" placeholder="Descrição das Mortes">
             </div>
-            <div>
-                <label for="mortes">Mortes</label>
-                <input type="number" id="mortes" value="0">
-                <input type="text" placeholder="Descrição das mortes">
+            <div class="linha">
+                <input type="number" placeholder="Saldo Final" id="saldo" readonly>
             </div>
-            <div>
-                <label for="saldo">Saldo Final</label>
-                <input type="number" id="saldo" readonly>
-            </div>
-        </div>
-        <br>
-        <button onclick="calcularSaldo()">Salvar</button>
+            <button type="button" onclick="calcularSaldo()">Salvar</button>
+        </form>
     </div>
-
     <script>
         function calcularSaldo() {
-            const inicial = parseInt(document.getElementById('inicial').value) || 0;
-            const entrada = parseInt(document.getElementById('entrada').value) || 0;
-            const nascimentos = parseInt(document.getElementById('nascimentos').value) || 0;
-            const transferencia = parseInt(document.getElementById('transferencia').value) || 0;
-            const saida = parseInt(document.getElementById('saida').value) || 0;
-            const abate = parseInt(document.getElementById('abate').value) || 0;
-            const mortes = parseInt(document.getElementById('mortes').value) || 0;
+            const inicial = parseInt(document.getElementById("inicial").value) || 0;
+            const entrada = parseInt(document.getElementById("entrada").value) || 0;
+            const transferencia = parseInt(document.getElementById("transferencia").value) || 0;
+            const saida = parseInt(document.getElementById("saida").value) || 0;
+            const abate = parseInt(document.getElementById("abate").value) || 0;
+            const mortes = parseInt(document.getElementById("mortes").value) || 0;
 
-            const saldo = inicial + entrada + nascimentos - transferencia - saida - abate - mortes;
-            document.getElementById('saldo').value = saldo;
+            const saldo = inicial + entrada - transferencia - saida - abate - mortes;
+            document.getElementById("saldo").value = saldo;
         }
     </script>
 </body>
