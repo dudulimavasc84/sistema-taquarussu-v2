@@ -4,41 +4,77 @@
 <head>
     <meta charset="UTF-8">
     <title>Lançamento Mensal</title>
-    <link rel="stylesheet" href="estilo.css">
-    <script>
-    function calcularSaldoFinal() {
-        let inicial = parseInt(document.getElementById("inicial").value) || 0;
-        let entrada = parseInt(document.getElementById("entrada").value) || 0;
-        let nascimentos = parseInt(document.getElementById("nascimentos").value) || 0;
-        let transferencia = parseInt(document.getElementById("transferencia").value) || 0;
-        let saida = parseInt(document.getElementById("saida").value) || 0;
-        let abate = parseInt(document.getElementById("abate").value) || 0;
-        let mortes = parseInt(document.getElementById("mortes").value) || 0;
-        let saldo = inicial + entrada + nascimentos - transferencia - saida - abate - mortes;
-        document.getElementById("saldo").value = saldo;
-    }
-    </script>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f3f3f3; text-align: center; }
+        .container { background: white; padding: 20px; width: 400px; margin: 40px auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        img.logo { width: 100px; margin-bottom: 10px; }
+        h2 { color: #2e7d32; }
+        select, input[type="number"], input[type="text"] { width: 48%; padding: 10px; margin: 5px 1%; box-sizing: border-box; }
+        input[readonly] { background-color: #eee; }
+        .full-width { width: 98%; }
+        button { background-color: #2e7d32; color: white; padding: 10px; border: none; width: 100%; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #27642b; }
+    </style>
 </head>
 <body>
-    <div class="form-container">
-        <img src="logo.png" alt="Logo Fazenda" class="logo">
+    <div class="container">
+        <img src="logo.png" class="logo" alt="Logo Fazenda">
         <h2>Lançamento Mensal</h2>
-        <form>
-            <select><option>Fazenda Taquarussu</option><option>Fazenda Coqueiral</option></select>
-            <select><option>Janeiro</option><option>Fevereiro</option><option>Março</option><option>Abril</option><option>Maio</option><option>Junho</option><option>Julho</option><option>Agosto</option><option>Setembro</option><option>Outubro</option><option>Novembro</option><option>Dezembro</option></select>
-            <select><option>2023</option><option>2024</option><option>2025</option></select>
-            <select><option>Macho</option><option>Fêmea</option></select>
-            <select><option>0 a 12 meses</option><option>12 a 24 meses</option><option>Acima de 24 meses</option></select><br>
-            <input id="inicial" placeholder="Inicial" oninput="calcularSaldoFinal()">
-            <input id="entrada" placeholder="Entrada" oninput="calcularSaldoFinal()">
-            <input id="nascimentos" placeholder="Nascimentos" oninput="calcularSaldoFinal()"><br>
-            <input id="transferencia" placeholder="Transferência" oninput="calcularSaldoFinal()">
-            <input id="saida" placeholder="Saída da Fazenda" oninput="calcularSaldoFinal()">
-            <input id="abate" placeholder="Abate" oninput="calcularSaldoFinal()"><br>
-            <input id="mortes" placeholder="Mortes" oninput="calcularSaldoFinal()">
-            <input id="saldo" placeholder="Saldo Final" readonly><br>
-            <button type="submit">Salvar</button>
-        </form>
+        <select id="fazenda">
+            <option value="Taquarussu">Fazenda Taquarussu</option>
+            <option value="Coqueiral">Fazenda Coqueiral</option>
+        </select>
+        <select id="mes">
+            <option>Janeiro</option><option>Fevereiro</option><option>Março</option><option>Abril</option>
+            <option>Maio</option><option>Junho</option><option>Julho</option><option>Agosto</option>
+            <option>Setembro</option><option>Outubro</option><option>Novembro</option><option>Dezembro</option>
+        </select>
+        <select id="ano">
+            <option>2023</option><option>2024</option><option>2025</option><option>2026</option><option>2027</option><option>2028</option><option>2029</option><option>2030</option>
+        </select>
+        <select id="sexo">
+            <option>Macho</option>
+            <option>Fêmea</option>
+        </select>
+        <select id="faixa">
+            <option>0 a 12 meses</option>
+            <option>12 a 24 meses</option>
+            <option>24 a 36 meses</option>
+            <option>Acima de 36 meses</option>
+            <option>Bezerro(a)</option>
+            <option>Novilho(a)</option>
+            <option>Vaca</option>
+            <option>Touro</option>
+        </select>
+        <input type="number" id="inicial" placeholder="Inicial">
+        <input type="number" id="entrada" placeholder="Entrada">
+        <input type="text" class="full-width" placeholder="Descrição da Entrada">
+        <input type="number" id="nascimentos" placeholder="Nascimentos">
+        <input type="number" id="transferencia" placeholder="Transferência">
+        <input type="text" class="full-width" placeholder="Descrição da Transferência">
+        <input type="number" id="saida" placeholder="Saída da Fazenda">
+        <input type="text" class="full-width" placeholder="Descrição da Saída">
+        <input type="number" id="abate" placeholder="Abate">
+        <input type="text" class="full-width" placeholder="Descrição do Abate">
+        <input type="number" id="mortes" placeholder="Mortes">
+        <input type="text" class="full-width" placeholder="Descrição das Mortes">
+        <input type="number" id="saldo" placeholder="Saldo Final" readonly>
+        <button onclick="calcularSaldo()">Salvar</button>
     </div>
+
+    <script>
+        function calcularSaldo() {
+            let inicial = parseInt(document.getElementById('inicial').value) || 0;
+            let entrada = parseInt(document.getElementById('entrada').value) || 0;
+            let nascimentos = parseInt(document.getElementById('nascimentos').value) || 0;
+            let transferencia = parseInt(document.getElementById('transferencia').value) || 0;
+            let saida = parseInt(document.getElementById('saida').value) || 0;
+            let abate = parseInt(document.getElementById('abate').value) || 0;
+            let mortes = parseInt(document.getElementById('mortes').value) || 0;
+
+            let saldo = inicial + entrada + nascimentos - transferencia - saida - abate - mortes;
+            document.getElementById('saldo').value = saldo;
+        }
+    </script>
 </body>
 </html>
