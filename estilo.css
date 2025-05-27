@@ -1,54 +1,39 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #e9f5eb;
-    margin: 0;
-    padding: 0;
-}
-.container {
-    width: 90%;
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
+    background: #f4f4f4;
     text-align: center;
 }
 .logo {
     width: 100px;
-    margin: 10px auto;
+    margin: 20px auto;
 }
-input, select, textarea, button {
-    width: 100%;
+.login-container, .painel-container, .form-container {
+    background: #fff;
+    padding: 30px;
+    margin: 40px auto;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+}
+input, select {
+    width: 30%;
     padding: 10px;
-    margin: 5px 0 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    margin: 10px 5px;
+    font-size: 14px;
 }
-textarea {
-    resize: vertical;
-}
-button, .btn {
-    background-color: #2e7d32;
+.botao, button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 12px;
+    background: green;
     color: white;
     border: none;
-    cursor: pointer;
+    border-radius: 5px;
     text-decoration: none;
-    display: inline-block;
 }
-.btn.red {
-    background-color: #c62828;
-}
-button:hover, .btn:hover {
-    opacity: 0.9;
-}
-.grid {
-    display: grid;
-    grid-template-columns: 1fr;
-}
-@media (min-width: 600px) {
-    .grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-    }
+.sair {
+    background: red;
 }

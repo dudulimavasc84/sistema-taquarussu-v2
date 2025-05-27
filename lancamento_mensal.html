@@ -4,139 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Lançamento Mensal</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f8f8f8; margin: 0; padding: 20px; }
-        .container { background: white; padding: 30px; border-radius: 8px; max-width: 700px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        .logo { text-align: center; margin-bottom: 20px; }
-        .logo img { height: 80px; }
-        h2 { text-align: center; color: #2e7d32; }
-        label { font-weight: bold; display: block; margin-top: 15px; }
-        select, input[type=number] { width: 100%; padding: 8px; margin-top: 5px; }
-        textarea { width: 100%; padding: 8px; margin-top: 5px; }
-        button { background-color: #2e7d32; color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; width: 100%; margin-top: 20px; }
-        button:hover { background-color: #1b5e20; }
-        .row { display: flex; gap: 20px; }
-        .row > div { flex: 1; }
-    </style>
+    <link rel="stylesheet" href="estilo.css">
+    <script>
+    function calcularSaldoFinal() {
+        let inicial = parseInt(document.getElementById("inicial").value) || 0;
+        let entrada = parseInt(document.getElementById("entrada").value) || 0;
+        let nascimentos = parseInt(document.getElementById("nascimentos").value) || 0;
+        let transferencia = parseInt(document.getElementById("transferencia").value) || 0;
+        let saida = parseInt(document.getElementById("saida").value) || 0;
+        let abate = parseInt(document.getElementById("abate").value) || 0;
+        let mortes = parseInt(document.getElementById("mortes").value) || 0;
+        let saldo = inicial + entrada + nascimentos - transferencia - saida - abate - mortes;
+        document.getElementById("saldo").value = saldo;
+    }
+    </script>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">
-            <img src="logo.png" alt="Logo Fazenda">
-        </div>
+    <div class="form-container">
+        <img src="logo.png" alt="Logo Fazenda" class="logo">
         <h2>Lançamento Mensal</h2>
-        <div class="row">
-            <div>
-                <label for="fazenda">Fazenda</label>
-                <select id="fazenda">
-                    <option>Fazenda Taquarussu</option>
-                    <option>Fazenda Coqueiral</option>
-                </select>
-            </div>
-            <div>
-                <label for="mes">Mês</label>
-                <select id="mes">
-                    <option>Janeiro</option>
-                    <option>Fevereiro</option>
-                    <option>Março</option>
-                    <option>Abril</option>
-                    <option>Maio</option>
-                    <option>Junho</option>
-                    <option>Julho</option>
-                    <option>Agosto</option>
-                    <option>Setembro</option>
-                    <option>Outubro</option>
-                    <option>Novembro</option>
-                    <option>Dezembro</option>
-                </select>
-            </div>
-            <div>
-                <label for="ano">Ano</label>
-                <select id="ano">
-                    <script>
-                        for (let y = 2020; y <= 2030; y++) {
-                            document.write('<option>' + y + '</option>');
-                        }
-                    </script>
-                </select>
-            </div>
-        </div>
-        <div class="row">
-            <div>
-                <label for="sexo">Sexo</label>
-                <select id="sexo">
-                    <option>Macho</option>
-                    <option>Fêmea</option>
-                </select>
-            </div>
-            <div>
-                <label for="faixa">Faixa Etária</label>
-                <select id="faixa">
-                    <option>0 a 12 meses</option>
-                    <option>12 a 24 meses</option>
-                    <option>24 a 36 meses</option>
-                    <option>Acima de 36 meses</option>
-                </select>
-            </div>
-        </div>
-        <div class="row">
-            <div>
-                <label for="inicial">Inicial</label>
-                <input type="number" id="inicial" value="0">
-            </div>
-            <div>
-                <label for="entrada">Entrada</label>
-                <input type="number" id="entrada" value="0">
-                <textarea placeholder="Descrição da Entrada"></textarea>
-            </div>
-            <div>
-                <label for="nasc">Nascimentos</label>
-                <input type="number" id="nasc" value="0">
-            </div>
-        </div>
-        <div class="row">
-            <div>
-                <label for="transf">Transferência</label>
-                <input type="number" id="transf" value="0">
-                <textarea placeholder="Descrição da Transferência"></textarea>
-            </div>
-            <div>
-                <label for="saida">Saída da Fazenda</label>
-                <input type="number" id="saida" value="0">
-                <textarea placeholder="Descrição da Saída"></textarea>
-            </div>
-            <div>
-                <label for="abate">Abate</label>
-                <input type="number" id="abate" value="0">
-                <textarea placeholder="Descrição do Abate"></textarea>
-            </div>
-        </div>
-        <div class="row">
-            <div>
-                <label for="mortes">Mortes</label>
-                <input type="number" id="mortes" value="0">
-                <textarea placeholder="Descrição das Mortes"></textarea>
-            </div>
-            <div>
-                <label for="saldo">Saldo Final</label>
-                <input type="number" id="saldo" readonly value="0">
-            </div>
-        </div>
-        <button onclick="calcularSaldo()">Salvar</button>
+        <form>
+            <select><option>Fazenda Taquarussu</option><option>Fazenda Coqueiral</option></select>
+            <select><option>Janeiro</option><option>Fevereiro</option><option>Março</option><option>Abril</option><option>Maio</option><option>Junho</option><option>Julho</option><option>Agosto</option><option>Setembro</option><option>Outubro</option><option>Novembro</option><option>Dezembro</option></select>
+            <select><option>2023</option><option>2024</option><option>2025</option></select>
+            <select><option>Macho</option><option>Fêmea</option></select>
+            <select><option>0 a 12 meses</option><option>12 a 24 meses</option><option>Acima de 24 meses</option></select><br>
+            <input id="inicial" placeholder="Inicial" oninput="calcularSaldoFinal()">
+            <input id="entrada" placeholder="Entrada" oninput="calcularSaldoFinal()">
+            <input id="nascimentos" placeholder="Nascimentos" oninput="calcularSaldoFinal()"><br>
+            <input id="transferencia" placeholder="Transferência" oninput="calcularSaldoFinal()">
+            <input id="saida" placeholder="Saída da Fazenda" oninput="calcularSaldoFinal()">
+            <input id="abate" placeholder="Abate" oninput="calcularSaldoFinal()"><br>
+            <input id="mortes" placeholder="Mortes" oninput="calcularSaldoFinal()">
+            <input id="saldo" placeholder="Saldo Final" readonly><br>
+            <button type="submit">Salvar</button>
+        </form>
     </div>
-    <script>
-        function calcularSaldo() {
-            let inicial = parseInt(document.getElementById('inicial').value) || 0;
-            let entrada = parseInt(document.getElementById('entrada').value) || 0;
-            let nasc = parseInt(document.getElementById('nasc').value) || 0;
-            let transf = parseInt(document.getElementById('transf').value) || 0;
-            let saida = parseInt(document.getElementById('saida').value) || 0;
-            let abate = parseInt(document.getElementById('abate').value) || 0;
-            let mortes = parseInt(document.getElementById('mortes').value) || 0;
-
-            let saldoFinal = inicial + entrada + nasc - transf - saida - abate - mortes;
-            document.getElementById('saldo').value = saldoFinal;
-        }
-    </script>
 </body>
 </html>
