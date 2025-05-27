@@ -1,1 +1,71 @@
-<!-- HTML de Lançamento Mensal aqui -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lançamento Mensal</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Logo Fazenda" class="logo">
+        <h2>Lançamento Mensal</h2>
+        <form>
+            <div class="row">
+                <select id="fazenda">
+                    <option>Fazenda Taquarussu</option>
+                    <option>Fazenda Coqueiral</option>
+                </select>
+                <select id="mes">
+                    <option>Janeiro</option><option>Fevereiro</option><option>Março</option><option>Abril</option>
+                    <option>Maio</option><option>Junho</option><option>Julho</option><option>Agosto</option>
+                    <option>Setembro</option><option>Outubro</option><option>Novembro</option><option>Dezembro</option>
+                </select>
+                <select id="ano">
+                    <option>2023</option><option>2024</option><option>2025</option><option>2026</option>
+                    <option>2027</option><option>2028</option><option>2029</option><option>2030</option>
+                </select>
+            </div>
+            <div class="row">
+                <select id="sexo">
+                    <option>Macho</option><option>Fêmea</option>
+                </select>
+                <select id="faixa">
+                    <option>0 a 12 meses</option>
+                    <option>13 a 24 meses</option>
+                    <option>25 a 36 meses</option>
+                    <option>Acima de 36 meses</option>
+                </select>
+            </div>
+            <div class="row">
+                <input type="number" placeholder="Inicial" id="inicial">
+                <input type="number" placeholder="Entrada" id="entrada">
+                <input type="text" placeholder="Descrição da Entrada">
+            </div>
+            <div class="row">
+                <input type="number" placeholder="Nascimentos" id="nascimentos">
+            </div>
+            <div class="row">
+                <input type="number" placeholder="Transferência" id="transferencia">
+                <input type="text" placeholder="Descrição da Transferência">
+            </div>
+            <div class="row">
+                <input type="number" placeholder="Saída da Fazenda" id="saida">
+                <input type="text" placeholder="Descrição da Saída">
+            </div>
+            <div class="row">
+                <input type="number" placeholder="Abate" id="abate">
+                <input type="text" placeholder="Descrição do Abate">
+            </div>
+            <div class="row">
+                <input type="number" placeholder="Mortes" id="mortes">
+                <input type="text" placeholder="Descrição de Mortes">
+            </div>
+            <div class="row">
+                <input type="number" placeholder="Saldo Final" id="saldo" readonly>
+            </div>
+            <button type="button" onclick="calcularSaldo()">Salvar</button>
+        </form>
+    </div>
+</body>
+</html>
