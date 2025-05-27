@@ -1,89 +1,63 @@
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Lançamento Mensal</title>
-    <link rel="stylesheet" href="estilo.css">
+  <meta charset="UTF-8">
+  <title>Lançamento Mensal</title>
+  <link rel="stylesheet" href="estilo.css">
+  <script src="soma_saldo.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <img src="logo.png" alt="Logo Fazenda" class="logo">
-        <h2>Lançamento Mensal</h2>
-        <form id="lancamentoForm">
-            <div class="linha">
-                <select name="fazenda" id="fazenda">
-                    <option value="Fazenda Taquarussu">Fazenda Taquarussu</option>
-                    <option value="Fazenda Coqueiral">Fazenda Coqueiral</option>
-                </select>
-                <select name="mes" id="mes">
-                    <script>
-                        const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-                        document.write(meses.map(m => `<option value="${m}">${m}</option>`).join(""));
-                    </script>
-                </select>
-                <select name="ano" id="ano">
-                    <script>
-                        for (let ano = 2020; ano <= 2030; ano++) {
-                            document.write(`<option value="${ano}">${ano}</option>`);
-                        }
-                    </script>
-                </select>
-            </div>
-            <div class="linha">
-                <select name="sexo">
-                    <option value="Macho">Macho</option>
-                    <option value="Fêmea">Fêmea</option>
-                </select>
-                <select name="faixaEtaria" id="faixaEtaria">
-                    <option>0 a 12 meses</option>
-                    <option>13 a 24 meses</option>
-                    <option>25 a 36 meses</option>
-                    <option>Acima de 36 meses</option>
-                </select>
-            </div>
-            <div class="linha">
-                <input type="number" placeholder="Inicial" id="inicial">
-                <input type="number" placeholder="Entrada" id="entrada">
-                <input type="text" placeholder="Descrição da Entrada">
-            </div>
-            <div class="linha">
-                <input type="number" placeholder="Nascimentos" id="nascimentos">
-            </div>
-            <div class="linha">
-                <input type="number" placeholder="Transferência" id="transferencia">
-                <input type="text" placeholder="Descrição da Transferência">
-            </div>
-            <div class="linha">
-                <input type="number" placeholder="Saída da Fazenda" id="saida">
-                <input type="text" placeholder="Descrição da Saída">
-            </div>
-            <div class="linha">
-                <input type="number" placeholder="Abate" id="abate">
-                <input type="text" placeholder="Descrição do Abate">
-            </div>
-            <div class="linha">
-                <input type="number" placeholder="Mortes" id="mortes">
-                <input type="text" placeholder="Descrição das Mortes">
-            </div>
-            <div class="linha">
-                <input type="number" placeholder="Saldo Final" id="saldo" readonly>
-            </div>
-            <button type="button" onclick="calcularSaldo()">Salvar</button>
-        </form>
-    </div>
-    <script>
-        function calcularSaldo() {
-            const inicial = parseInt(document.getElementById("inicial").value) || 0;
-            const entrada = parseInt(document.getElementById("entrada").value) || 0;
-            const transferencia = parseInt(document.getElementById("transferencia").value) || 0;
-            const saida = parseInt(document.getElementById("saida").value) || 0;
-            const abate = parseInt(document.getElementById("abate").value) || 0;
-            const mortes = parseInt(document.getElementById("mortes").value) || 0;
-
-            const saldo = inicial + entrada - transferencia - saida - abate - mortes;
-            document.getElementById("saldo").value = saldo;
-        }
-    </script>
+  <div class="container">
+    <img src="logo.png" alt="Logo Fazenda" class="logo">
+    <h2>Lançamento Mensal</h2>
+    <form id="formulario">
+      <div class="linha">
+        <select><option>Fazenda Taquarussu</option><option>Fazenda Coqueiral</option></select>
+        <select id="mes">
+          <option>Janeiro</option><option>Fevereiro</option><option>Março</option><option>Abril</option>
+          <option>Maio</option><option>Junho</option><option>Julho</option><option>Agosto</option>
+          <option>Setembro</option><option>Outubro</option><option>Novembro</option><option>Dezembro</option>
+        </select>
+        <select id="ano">
+          <option>2020</option><option>2021</option><option>2022</option><option>2023</option>
+          <option>2024</option><option>2025</option><option>2026</option><option>2027</option>
+          <option>2028</option><option>2029</option><option>2030</option>
+        </select>
+      </div>
+      <div class="linha">
+        <select><option>Macho</option><option>Fêmea</option></select>
+        <select>
+          <option>0 a 12 meses</option><option>12 a 24 meses</option>
+          <option>24 a 36 meses</option><option>Acima de 36 meses</option>
+        </select>
+      </div>
+      <div class="linha"><input id="inicial" type="number" placeholder="Inicial"></div>
+      <div class="linha">
+        <input id="entrada" type="number" placeholder="Entrada">
+        <input type="text" placeholder="Descrição da Entrada">
+      </div>
+      <div class="linha">
+        <input id="transferencia" type="number" placeholder="Transferência">
+        <input type="text" placeholder="Descrição da Transferência">
+      </div>
+      <div class="linha">
+        <input id="saida" type="number" placeholder="Saída da Fazenda">
+        <input type="text" placeholder="Descrição da Saída">
+      </div>
+      <div class="linha">
+        <input id="abate" type="number" placeholder="Abate">
+        <input type="text" placeholder="Descrição do Abate">
+      </div>
+      <div class="linha">
+        <input id="mortes" type="number" placeholder="Mortes">
+        <input type="text" placeholder="Descrição das Mortes">
+      </div>
+      <div class="linha">
+        <input id="saldo" type="number" placeholder="Saldo Final" readonly>
+      </div>
+      <button type="submit">Salvar</button>
+    </form>
+  </div>
 </body>
 </html>
